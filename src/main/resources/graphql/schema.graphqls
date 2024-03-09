@@ -1,0 +1,11 @@
+type Query {
+    catById(id: ID): Cat
+}
+
+type Cat {
+    id: ID
+    name: String
+    kind: String
+    age: Int
+    masterName: String
+}

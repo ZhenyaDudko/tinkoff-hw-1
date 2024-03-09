@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+  app:
+    image: 'zhenyaaa50/tinkoff-task-1:1.0.0'
+    container_name: app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - SPRING.DATASOURCE.URL=jdbc:postgresql://db/postgres
+
+
+  db:
+    image: 'postgres:16-alpine'
+    container_name: db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+volumes:
+  postgres:
